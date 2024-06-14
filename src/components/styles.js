@@ -1,23 +1,29 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  padding: 12px 16px;
-  text-align: left;
-  margin: 16px;
-
-  @media screen and (width >= 1025px) {
-    width: 40%;
-    padding: 12px 0 0 80px;
-  }
+  text-align: center;
 
   .firstSection {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1025px) {
+    width: 40%;
+    padding: 12px 0 0 80px;
+    text-align: left;
+
+    .firstSection {
+      display: flex;
+      flex-direction: row;
+    }
   }
 
   .infos {
     margin: 0 36px 0;
     max-width: 90%;
-    
+
     .name {
       font-size: 26px;
       font-weight: 700;
@@ -70,9 +76,9 @@ export const CardContainer = styled.div`
     font-weight: 700;
     color: #999;
     line-height: 26px;
-    max-width: 90%;
-    margin: 0 auto;
-
+    /* margin: 10px auto; */
+    text-align: left;
+    padding: 0 10px;
   }
 
   .profile-image {
@@ -92,11 +98,14 @@ export const ScheduleContainer = styled.div`
   padding: 10px;
   box-shadow: 1px 1px 10px #f6f6f6;
   width: 100%;
-  max-width: 500px;
+  max-width: 90vw;
   border-radius: 16px;
+  margin: 0 auto;
 
-  @media screen and (width >= 1024px) {
+  @media screen and (width >= 1025px) {
     width: 50%;
+    max-width: 500px;
+    margin: 0;
   }
 
   .header {
@@ -118,7 +127,12 @@ export const ScheduleContainer = styled.div`
   }
 
   .swiper-header {
-    height: 50px !important;
+    height: 50px;
+    background-color: white;
+
+    @media screen and (max-width: 400px) {
+      height: 80px;
+    }
 
     .swiper-slide {
       background-color: white;
@@ -151,7 +165,7 @@ export const ScheduleContainer = styled.div`
 
     .day-of-week {
       text-transform: uppercase;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 500;
     }
 
