@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { CardContainer } from "./styles";
-import api from '../services/api'; // Correct import path
+import api from "../services/api";
 
 import Rating from "./Rating";
-import ErrorBoundary from "./ErrorBoundary";
 
 export default function ProfessionalCard() {
   const [profile, setProfile] = useState(null);
@@ -15,31 +14,25 @@ export default function ProfessionalCard() {
   if (!profile) return <p>Loading...</p>;
 
   return (
-    <ErrorBoundary>
-      <CardContainer>
-        <div className="firstSection">
-          <img
-            src={profile.image}
-            alt="Professional"
-            className="profile-image"
-          />
-          <div className="infos">
-            <h2 className="name">{profile.name}</h2>
-            <div className="secondLine">
-              <span className="role">{profile.role} </span>
-              <span className="location"> | {profile.location}</span>
-            </div>
-            <div className="rating">
-              <Rating rating={profile.rating} />
-              <span>({profile.reviews} reviews)</span>
-            </div>
-            <p className="price">
-              R${profile.price} <span className="per-time"> / 50 MINUTES</span>
-            </p>
+    <CardContainer>
+      <div className="firstSection">
+        <img src={profile.image} alt="Professional" className="profile-image" />
+        <div className="infos">
+          <h2 className="name">{profile.name}</h2>
+          <div className="secondLine">
+            <span className="role">{profile.role} </span>
+            <span className="location"> | {profile.location}</span>
           </div>
+          <div className="rating">
+            <Rating rating={profile.rating} />
+            <span>({profile.reviews} reviews)</span>
+          </div>
+          <p className="price">
+            R${profile.price} <span className="per-time"> / 50 MINUTES</span>
+          </p>
         </div>
-        <p className="description">{profile.description}</p>
-      </CardContainer>
-    </ErrorBoundary>
+      </div>
+      <p className="description">{profile.description}</p>
+    </CardContainer>
   );
 }
