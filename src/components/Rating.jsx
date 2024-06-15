@@ -1,3 +1,6 @@
+import React from 'react';
+
+
 const Star = ({ filled }) => (
   <svg
     height="25px"

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import api from "../services/api";
+import api from "../services/api.js";
 import { ScheduleContainer } from "./styles";
 import "swiper/swiper-bundle.css";
 import "swiper/css";
@@ -37,25 +37,25 @@ const Schedule = () => {
         <p className="timezone">Timezone: {schedule.timezone}</p>
       </div>
 
-        <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
-          spaceBetween={10}
-          slidesPerView={4}
-          navigation
-          className="swiper-header"
-          onSwiper={(swiper) => (swiperRef1.current = swiper)}
-        >
-          {schedule.days.map((day, index) => (
-            <SwiperSlide key={index}>
-              <div className="day-wrapper">
-                <span className="day-of-week">
-                  {day.day_of_week.substring(0, 3)}
-                </span>
-                <span className="day-of-month">{day.day}</span>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
+        spaceBetween={10}
+        slidesPerView={4}
+        navigation
+        className="swiper-header"
+        onSwiper={(swiper) => (swiperRef1.current = swiper)}
+      >
+        {schedule.days.map((day, index) => (
+          <SwiperSlide key={index}>
+            <div className="day-wrapper">
+              <span className="day-of-week">
+                {day.day_of_week.substring(0, 3)}
+              </span>
+              <span className="day-of-month">{day.day}</span>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
         spaceBetween={10}
