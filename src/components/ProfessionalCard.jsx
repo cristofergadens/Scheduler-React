@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { CardContainer, Loader } from "./styles";
+import { CardContainer } from "./styles";
 import api from "../services/api";
 import Rating from "./Rating";
+import Loader from "./Loader";
 
 export default function ProfessionalCard() {
   const [profile, setProfile] = useState(null);

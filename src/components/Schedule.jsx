@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import api from "../services/api.js";
-import { Loader, ScheduleContainer } from "./styles";
+import { ScheduleContainer } from "./styles";
 import "swiper/swiper-bundle.css";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,6 +11,7 @@ import {
   A11y,
   Controller,
 } from "swiper/modules";
+import Loader from "./Loader.jsx";
 
 export default function Schedule() {
   const [schedule, setSchedule] = useState(null);
@@ -19,7 +20,7 @@ export default function Schedule() {
 
   useEffect(() => {
     api.get("/schedule").then((response) => {
-        setSchedule(response.data);
+      setSchedule(response.data);
     });
   }, []);
 
