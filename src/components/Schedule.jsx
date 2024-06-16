@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import api from "../services/api.js";
-import { ScheduleContainer } from "./styles";
+import { Loader, ScheduleContainer } from "./styles";
 import "swiper/swiper-bundle.css";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,13 +12,15 @@ import {
   Controller,
 } from "swiper/modules";
 
-const Schedule = () => {
+export default function Schedule() {
   const [schedule, setSchedule] = useState(null);
   const swiperRef1 = useRef(null);
   const swiperRef2 = useRef(null);
 
   useEffect(() => {
-    api.get("/schedule").then((response) => setSchedule(response.data));
+    api.get("/schedule").then((response) => {
+        setSchedule(response.data);
+    });
   }, []);
 
   useEffect(() => {
@@ -28,7 +30,7 @@ const Schedule = () => {
     }
   }, [swiperRef1]);
 
-  if (!schedule) return <p>Loading...</p>;
+  if (!schedule) return <Loader />;
 
   return (
     <ScheduleContainer>
@@ -36,7 +38,6 @@ const Schedule = () => {
         <h2 className="title">{schedule.title}</h2>
         <p className="timezone">Timezone: {schedule.timezone}</p>
       </div>
-
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
         spaceBetween={10}
@@ -63,7 +64,7 @@ const Schedule = () => {
         navigation={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
-        }} // Add navigation to the second swiper
+        }}
         className="swiper-content"
         onSwiper={(swiper) => (swiperRef2.current = swiper)}
       >
@@ -88,12 +89,6 @@ const Schedule = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      {/* Navigation buttons
-      <div className="swiper-button-prev">Prev</div>
-      <div className="swiper-button-next">Next</div> */}
     </ScheduleContainer>
   );
-};
-
-export default Schedule;
+}

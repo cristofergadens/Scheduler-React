@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const CardContainer = styled.div`
   text-align: center;
@@ -76,7 +76,6 @@ export const CardContainer = styled.div`
     font-weight: 700;
     color: #999;
     line-height: 26px;
-    /* margin: 10px auto; */
     text-align: left;
     padding: 0 10px;
   }
@@ -95,7 +94,7 @@ export const CardContainer = styled.div`
 `;
 
 export const ScheduleContainer = styled.div`
-  padding: 10px;
+  /* padding: 10px; */
   box-shadow: 1px 1px 10px #f6f6f6;
   width: 100%;
   max-width: 90vw;
@@ -224,5 +223,49 @@ export const ScheduleContainer = styled.div`
         }
       }
     }
+  }
+`;
+
+const rotateLoader = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Loader = styled.div`
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 12px solid red;
+  border-top: 12px solid transparent;
+  animation: ${rotateLoader} 1s linear infinite;
+  position: fixed;
+  top: 50%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+`;
+
+export const Footer = styled.footer`
+  position: relative;
+  bottom: -20px;
+  margin: 0 auto;
+  height: 60px;
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+
+  .logo {
+    width: 80px;
+    height: 60px;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
   }
 `;

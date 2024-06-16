@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { CardContainer } from "./styles";
+import { CardContainer, Loader } from "./styles";
 import api from "../services/api";
-
 import Rating from "./Rating";
 
 export default function ProfessionalCard() {
   const [profile, setProfile] = useState(null);
 
   useEffect(() => {
-    api.get("/profile").then((response) => setProfile(response.data));
+    api.get("/profile").then((response) => {
+      setProfile(response.data);
+    });
   }, []);
 
-  if (!profile) return <p>Loading...</p>;
+  if (!profile) return <Loader />;
 
   return (
     <CardContainer>
