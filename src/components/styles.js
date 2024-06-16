@@ -94,7 +94,6 @@ export const CardContainer = styled.div`
 `;
 
 export const ScheduleContainer = styled.div`
-  /* padding: 10px; */
   box-shadow: 1px 1px 10px #f6f6f6;
   width: 100%;
   max-width: 90vw;
@@ -255,7 +254,6 @@ export const Footer = styled.footer`
   margin: 0 auto;
   height: 60px;
   width: 100%;
-  /* background-color: red; */
   display: flex;
   justify-content: center;
 
