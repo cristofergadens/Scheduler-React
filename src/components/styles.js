@@ -11,12 +11,17 @@ export const CardContainer = styled.div`
 
   @media screen and (min-width: 1025px) {
     width: 40%;
-    padding: 12px 0 0 80px;
     text-align: left;
 
     .firstSection {
       display: flex;
       flex-direction: row;
+      margin-top: -130px;
+      align-items: flex-start;
+    }
+
+    .infos {
+      margin-top: -65px;
     }
   }
 
