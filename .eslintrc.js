@@ -1,18 +1,16 @@
 module.exports = {
-  // Outras configurações do ESLint
   env: {
     browser: true,
     es2021: true,
-    'cypress/globals': true // Adicione esta linha
+    'cypress/globals': true
   },
   extends: [
     'eslint:recommended',
-    'plugin:cypress/recommended' // Adicione esta linha
+    'plugin:cypress/recommended'
   ],
   plugins: [
-    'cypress' // Adicione esta linha
+    'cypress' 
   ],
   rules: {
-    // Suas regras personalizadas aqui
   },
 };
