@@ -4,16 +4,19 @@ This project was bootstrapped with [Create React App]
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, run the following command in the terminal:
+
+### `npx json-server --watch db.json --port 3001`
+
+This command starts the fake API used in this project.
 
 ### `npm start` or `yarn start`
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### `npm test` or `yarn test`
+## TESTS
 
-Launches the test runner in the interactive watch mode.
+You can run some tests for this application, using Cypress and Jest. To do so, enter the following commands: 
 
-### `npm run build` or `yarn build`
+### `yarn test` or `npx cypress run`
 
-Builds the app for production to the `build` folder.
