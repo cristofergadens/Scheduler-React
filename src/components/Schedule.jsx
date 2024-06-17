@@ -35,7 +35,10 @@ export default function Schedule({ schedule }) {
         modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
         spaceBetween={10}
         slidesPerView={4}
-        navigation
+        navigation={{
+          nextEl: ".swiper-header .swiper-button-next",
+          prevEl: ".swiper-header .swiper-button-prev",
+        }}
         className="swiper-header"
         onSwiper={(swiper) => (swiperRef1.current = swiper)}
         data-testid="swiper-content"
