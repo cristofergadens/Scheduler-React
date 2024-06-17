@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
-import api from "../services/api.js";
+import React, { useEffect, useRef } from "react";
 import { ScheduleContainer } from "./styles";
 import "swiper/swiper-bundle.css";
 import "swiper/css";
@@ -13,16 +12,9 @@ import {
 } from "swiper/modules";
 import Loader from "./Loader.jsx";
 
-export default function Schedule() {
-  const [schedule, setSchedule] = useState(null);
+export default function Schedule({ schedule }) {
   const swiperRef1 = useRef(null);
   const swiperRef2 = useRef(null);
-
-  useEffect(() => {
-    api.get("/schedule").then((response) => {
-      setSchedule(response.data);
-    });
-  }, []);
 
   useEffect(() => {
     if (swiperRef1.current && swiperRef2.current) {
@@ -46,7 +38,10 @@ export default function Schedule() {
         navigation
         className="swiper-header"
         onSwiper={(swiper) => (swiperRef1.current = swiper)}
+        data-testid="swiper-content"
       >
+        <div className="swiper-button-next"></div>
+        <div className="swiper-button-prev"></div>
         {schedule.days.map((day, index) => (
           <SwiperSlide key={index}>
             <div className="day-wrapper">
@@ -78,6 +73,11 @@ export default function Schedule() {
                     key={timeIndex}
                     className={
                       time !== " " ? "time-scheduled" : "time-scheduled-white"
+                    }
+                    onClick={() =>
+                      alert(
+                        `Scheduled for ${time} on ${day.day_of_week}, ${day.day}`
+                      )
                     }
                   >
                     {time !== " " ? time : " - "}

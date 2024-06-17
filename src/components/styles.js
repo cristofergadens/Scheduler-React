@@ -78,6 +78,13 @@ export const CardContainer = styled.div`
     line-height: 26px;
     text-align: left;
     padding: 0 10px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 150px;
+    text-overflow: ellipsis;
   }
 
   .profile-image {
@@ -187,6 +194,11 @@ export const ScheduleContainer = styled.div`
         color: #333;
         font-weight: 900;
         font-family: "Open sans";
+        cursor: pointer;
+
+        &:hover {
+          filter: contrast(80%);
+        }
 
         &-white {
           background-color: white;

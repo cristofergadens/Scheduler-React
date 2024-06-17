@@ -1,0 +1,16 @@
+{
+  "timezone": "Lisbon (+1)",
+  "title": "Updated Schedule!",
+  "days": [
+    {
+      "day": "AUG 22",
+      "day_of_week": "Saturday",
+      "times": ["08:00", "09:00", "10:00", "11:00", "12:00", "MORE"]
+    },
+    {
+      "day": "AUG 25",
+      "day_of_week": "Sunday",
+      "times": ["08:00", "09:00", "10:00", "11:00", "12:00", "MORE"]
+    }
+  ]
+}
